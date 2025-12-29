@@ -17,7 +17,7 @@ function Header() {
         <header
             className={twMerge(
                 ["fixed", "top-0", "left-0", "right-0", "h-header", "px-4"],
-                ["border-b", "border-divider"],
+                ["border-b", "border-divider","bg-background-default"],
                 ["flex", "justify-between", "items-center"],
                 ["z-50"],
             )}
