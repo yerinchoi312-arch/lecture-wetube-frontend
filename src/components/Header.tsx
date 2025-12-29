@@ -3,13 +3,16 @@ import { Link } from "react-router";
 import {
     MdCampaign,
     MdDarkMode,
+    MdLightMode,
     MdMenu,
     MdSearch,
     MdVideoCall,
 } from "react-icons/md";
 import { FaRegUserCircle, FaYoutube } from "react-icons/fa";
+import { useThemeStore } from "../store/useThemeStore.ts";
 
 function Header() {
+    const {theme,toggleTheme} = useThemeStore();
     return (
         <header
             className={twMerge(
@@ -92,13 +95,14 @@ function Header() {
                     <MdCampaign className={twMerge(["w-6", "h-6"])} />
                 </Link>
                 <button
+                    onClick={toggleTheme}
                     className={twMerge(
                         ["flex", "items-center", "justify-center", "p-2"],
                         ["rounded-full", "hover:bg-text-default/10"],
                     )}
-                    title={"다크 모드로 변경"}
-                >
-                    <MdDarkMode className={twMerge(["w-6", "h-6"])} />
+                    title={theme==="dark"?"라이트모드로 변경":"다크모드로 변경"}>
+                    {theme === "dark" ? <MdLightMode className={twMerge(["w-6", "h-6"])} />:<MdDarkMode className={twMerge(["w-6", "h-6"])} />}
+
                 </button>
                 <Link
                     to={"/upload"}
