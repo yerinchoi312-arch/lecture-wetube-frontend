@@ -2,8 +2,9 @@ import { twMerge } from "tailwind-merge";
 
 type BackdropProps = {
     onClose: () => void;
+    className?: string;
 };
-function Backdrop({ onClose }: BackdropProps) {
+function Backdrop({ onClose,className }: BackdropProps) {
     return (
         <div
             onClick={onClose}
@@ -13,7 +14,7 @@ function Backdrop({ onClose }: BackdropProps) {
                 "cursor-default",
                 "bg-black/60",
                 "backdrop-blur-sm",
-            ])}
+            ],className,)}
         />
     );
 }
