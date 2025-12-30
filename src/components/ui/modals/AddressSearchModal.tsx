@@ -23,7 +23,8 @@ function AddressSearchModal({props,onClose}:AddressSearchModalProps) {
             zonecode : data.zonecode,
             address : fullAddress,
         })
-        onClose();
+        onClose()
+
     }
     return<div className={twMerge(
         ["w-full","p-4"],

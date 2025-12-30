@@ -149,6 +149,7 @@ function Header() {
                             "text-secondary-main",
                             "font-medium",
                             "hover:bg-secondary-main/10",
+                            "whitespace-nowrap"
                         ],
                     )}
                 >
