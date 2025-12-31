@@ -104,8 +104,8 @@ function SignUp() {
     const handleAddressSearch = () => {
         openModal("ADDRESS_SEARCH", {
             onComplete: (data: { zonecode: string; address: string }) => {
-                setValue("zipCode", data.zonecode,{shouldValidate:true});
-                setValue("address1", data.address,{shouldValidate:true});
+                setValue("zipCode", data.zonecode, { shouldValidate: true });
+                setValue("address1", data.address, { shouldValidate: true });
 
                 //document.getElementById(요소의 id) => 화면에서 해당ID를 갖고 있는 요소를 선택
                 //하지만 없을 수도 있기 때문에 그 타입은 Element | null
@@ -114,24 +114,24 @@ function SignUp() {
         });
     };
 
-    const onSubmit = async (formData:SignUpFormData) => {
-        if(!isUsernameChecked) {
+    const onSubmit = async (formData: SignUpFormData) => {
+        if (!isUsernameChecked) {
             alert("아이디 중복 확인을 해주세요.");
             return;
         }
-        if(!isNickNameChecked) {
+        if (!isNickNameChecked) {
             alert("닉네임 중복 확인을 해주세요.");
             return;
         }
-        try{
+        try {
             await api.post("/auth/signup", formData);
-            alert("회원가입이 완료되었습니다! 로그인 해주세요.")
+            alert("회원가입이 완료되었습니다! 로그인 해주세요.");
             navigate("/sign-in");
-        }catch(e){
+        } catch (e) {
             //as 키워드는 해당 객체를 강제로 형변환 하는 것
             const axiosError = e as AxiosError<{ message: string }>;
             const msg = axiosError.response?.data.message || "회원가입 실패";
-            alert(msg)
+            alert(msg);
         }
     };
 
@@ -140,38 +140,15 @@ function SignUp() {
             className={twMerge(
                 ["min-h-[calc(100dvh-var(--height-header))]"],
                 ["flex", "justify-center", "items-center"],
-            )}
-        >
+            )}>
             <div
                 className={twMerge(
                     ["w-full", "max-w-[500px]", "space-y-8", "p-8"],
-                    [
-                        "border",
-                        "border-divider",
-                        "rounded-xl",
-                        "shadow-lg",
-                        "bg-background-paper",
-                    ],
-                )}
-            >
-                <div
-                    className={twMerge([
-                        "flex",
-                        "flex-col",
-                        "items-center",
-                        "gap-2",
-                    ])}
-                >
-                    <FaYoutube
-                        className={twMerge([
-                            "w-12",
-                            "h-12",
-                            "text-primary-main",
-                        ])}
-                    />
-                    <h1 className={twMerge(["text-2xl", "font-bold"])}>
-                        회원가입
-                    </h1>
+                    ["border", "border-divider", "rounded-xl", "shadow-lg", "bg-background-paper"],
+                )}>
+                <div className={twMerge(["flex", "flex-col", "items-center", "gap-2"])}>
+                    <FaYoutube className={twMerge(["w-12", "h-12", "text-primary-main"])} />
+                    <h1 className={twMerge(["text-2xl", "font-bold"])}>회원가입</h1>
                     <p className={twMerge(["text-sm", "text-text-disabled"])}>
                         WeTube와 함께하세요.
                     </p>
@@ -183,8 +160,7 @@ function SignUp() {
                                 ["pb-2"],
                                 ["text-lg", "font-semibold"],
                                 ["border-b", "border-divider"],
-                            )}
-                        >
+                            )}>
                             계정 정보
                         </h3>
                         <div className={twMerge(["flex", "gap-2"])}>
@@ -210,19 +186,12 @@ function SignUp() {
                                 type={"button"}
                                 variant={"secondary"}
                                 onClick={handleCheckUsername}
-                                className={twMerge(["w-32", "mt-6", "text-sm"])}
-                            >
+                                className={twMerge(["w-32", "mt-6", "text-sm"])}>
                                 중복확인
                             </Button>
                         </div>
                         {isUsernameChecked && (
-                            <p
-                                className={twMerge([
-                                    "text-xs",
-                                    "text-success-main",
-                                    "mt-[-10px]",
-                                ])}
-                            >
+                            <p className={twMerge(["text-xs", "text-success-main", "mt-[-10px]"])}>
                                 {usernameMessage}
                             </p>
                         )}
@@ -271,19 +240,12 @@ function SignUp() {
                                 onClick={handleCheckNickName}
                                 type={"button"}
                                 variant={"secondary"}
-                                className={twMerge(["w-32", "mt-6", "text-sm"])}
-                            >
+                                className={twMerge(["w-32", "mt-6", "text-sm"])}>
                                 중복확인
                             </Button>
                         </div>
                         {isNickNameChecked && (
-                            <p
-                                className={twMerge([
-                                    "text-xs",
-                                    "text-success-main",
-                                    "mt-[-10px]",
-                                ])}
-                            >
+                            <p className={twMerge(["text-xs", "text-success-main", "mt-[-10px]"])}>
                                 {nickNameMessage}
                             </p>
                         )}
@@ -296,17 +258,10 @@ function SignUp() {
                                 ["pb-2"],
                                 ["text-lg", "font-semibold"],
                                 ["border-b", "border-divider"],
-                            )}
-                        >
+                            )}>
                             개인 정보
                         </h3>
-                        <div
-                            className={twMerge([
-                                "flex",
-                                "justify-between",
-                                "gap-4",
-                            ])}
-                        >
+                        <div className={twMerge(["flex", "justify-between", "gap-4"])}>
                             <Input
                                 type={"date"}
                                 label={"생년월일"}
@@ -315,22 +270,8 @@ function SignUp() {
                                 })}
                                 error={errors.birthDate?.message}
                             />
-                            <div
-                                className={twMerge([
-                                    "flex",
-                                    "flex-col",
-                                    "gap-1",
-                                    "w-full",
-                                ])}
-                            >
-                                <label
-                                    className={twMerge([
-                                        "font-medium",
-                                        "text-sm",
-                                    ])}
-                                >
-                                    성별
-                                </label>
+                            <div className={twMerge(["flex", "flex-col", "gap-1", "w-full"])}>
+                                <label className={twMerge(["font-medium", "text-sm"])}>성별</label>
                                 <select
                                     className={twMerge(
                                         ["w-full", "px-3", "py-2"],
@@ -345,15 +286,11 @@ function SignUp() {
                                             "rounded-md",
                                             "bg-background-default",
                                         ],
-                                        [
-                                            "focus:outline-none",
-                                            "focus:border-secondary-main",
-                                        ],
+                                        ["focus:outline-none", "focus:border-secondary-main"],
                                     )}
                                     {...register("gender", {
                                         required: true,
-                                    })}
-                                >
+                                    })}>
                                     <option value={"MALE"}>남성</option>
                                     <option value={"FEMALE"}>여성</option>
                                 </select>
@@ -376,8 +313,7 @@ function SignUp() {
                                 ["pb-2"],
                                 ["text-lg", "font-semibold"],
                                 ["border-b", "border-divider"],
-                            )}
-                        >
+                            )}>
                             주소 정보
                         </h3>
                         <div className={twMerge(["flex", "gap-2"])}>
@@ -394,8 +330,7 @@ function SignUp() {
                                 onClick={handleAddressSearch}
                                 type={"button"}
                                 variant={"secondary"}
-                                className={twMerge(["w-32", "text-sm"])}
-                            >
+                                className={twMerge(["w-32", "text-sm"])}>
                                 주소찾기
                             </Button>
                         </div>
@@ -414,28 +349,14 @@ function SignUp() {
                             registration={register("address2")}
                         />
                     </div>
-                    <Button
-                        size={"lg"}
-                        className={"w-full"}
-                        disabled={isSubmitting}
-                    >
+                    <Button size={"lg"} className={"w-full"} disabled={isSubmitting}>
                         {isSubmitting ? "가입 중..." : "회원가입"}
                     </Button>
-                    <p
-                        className={twMerge([
-                            "text-center",
-                            "text-sm",
-                            "text-text-disabled",
-                        ])}
-                    >
+                    <p className={twMerge(["text-center", "text-sm", "text-text-disabled"])}>
                         이미 계정이 있으신가요?{" "}
                         <Link
                             to={"/sign-in"}
-                            className={twMerge([
-                                "text-secondary-main",
-                                "hover:underline",
-                            ])}
-                        >
+                            className={twMerge(["text-secondary-main", "hover:underline"])}>
                             로그인하기
                         </Link>
                     </p>
