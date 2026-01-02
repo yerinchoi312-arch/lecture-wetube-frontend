@@ -2,7 +2,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type ModalType = "LOGIN_REQUEST" | "ADDRESS_SEARCH" | null;
+type ModalType = "LOGIN_REQUIRED" | "ADDRESS_SEARCH" | null;
 interface ModalStore{
     isOpen: boolean;
     type: ModalType;

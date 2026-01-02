@@ -37,7 +37,7 @@ function Header() {
             //a태그에 onclick을 사용하고 있기 때문에 a의 기본기능인 "이동"을 막을 필요가 있음
             //이벤트 버블링 : 클릭 이벤트 등의 이벤트가 상위 요소로 전파되는 현상
             event.preventDefault();
-            openModal("LOGIN_REQUEST");
+            openModal("LOGIN_REQUIRED");
         }
     };
     const handleLogout = () => {

@@ -42,12 +42,12 @@ function VideoDetail() {
     }, [id]);
 
     //좋아요 버튼 클릭 함수 작성
-    const handelLikeClick = async () => {
+    const handleLikeClick = async () => {
         if (!video) {
             return;
         }
         if (!isLoggedIn) {
-            openModal("LOGIN_REQUEST");
+            openModal("LOGIN_REQUIRED");
             return;
         }
         //API 요청을 통해서 좋아요 상태를 변경하기 이전에 미리 UI를 변경하여 즉시 반영되도록 사용자에게 눈속임
@@ -73,7 +73,7 @@ function VideoDetail() {
             return;
         }
         if (!isLoggedIn) {
-            openModal("LOGIN_REQUEST");
+            openModal("LOGIN_REQUIRED");
             return;
         }
 
@@ -162,7 +162,7 @@ function VideoDetail() {
                         </div>
                         <div className={twMerge(["flex", "gap-2"])}>
                             <button
-                                onClick={handelLikeClick}
+                                onClick={handleLikeClick}
                                 className={twMerge(
                                     ["flex", "items-center", "gap-2"],
                                     ["ml-4", "px-4", "py-2", "rounded-full"],
