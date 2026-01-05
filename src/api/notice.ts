@@ -23,3 +23,13 @@ export const fetchNotices = async (page = 1, limit = 10) => {
     const response = await api.get<NoticeListResponse>(`/notices?page=${page}&limit=${limit}`);
     return response.data;
 };
+
+export const fetchNotice = async (noticeId: number)=>{
+    const response = await api.get<Notice>(`/notices/${noticeId}`);
+    return response.data;
+}
+
+export const deleteNotice = async (noticeId: number) => {
+    const response = await api.delete(`/notices/${noticeId}`);
+    return response.data;
+}
