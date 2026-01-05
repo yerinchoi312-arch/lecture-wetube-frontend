@@ -25,7 +25,6 @@ function NoticeList() {
     const loadNoticed = async () => {
         try {
             const data = await fetchNotices();
-            console.log(data);
             setNotices(data.notices);
         } catch (e) {
             console.log(e);
