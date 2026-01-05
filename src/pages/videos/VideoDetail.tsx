@@ -7,6 +7,7 @@ import { useAuthStore } from "../../store/useAuthStore.ts";
 import { MdThumbUp, MdThumbUpOffAlt } from "react-icons/md";
 import { useModalStore } from "../../store/useModalStore.ts";
 import { toggleSubscribed } from "../../api/subscription.ts";
+import CommentList from "../../components/comment/CommentList.tsx";
 
 function VideoDetail() {
     const { id } = useParams();
@@ -197,6 +198,8 @@ function VideoDetail() {
                         </div>
                     </div>
                 </div>
+
+                <CommentList videoId={Number(id)}/>
             </div>
             {/*오른쪽*/}
             <div className={twMerge(["hidden", "lg:block", "lg:w-87.5"])}>
