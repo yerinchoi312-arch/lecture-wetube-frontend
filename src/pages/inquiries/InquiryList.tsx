@@ -4,26 +4,36 @@ import { fetchMyInquiries, type Inquiry } from "../../api/inquiry.ts";
 import { twMerge } from "tailwind-merge";
 import Button from "../../components/ui/Button.tsx";
 import dayjs from "dayjs";
+import Pagination from "../../components/ui/Pagination.tsx";
 
 function InquiryList() {
     const navigate = useNavigate();
     const [inquiries, setInquiries] = useState<Inquiry[]>([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        loadInquiries().then(() => {});
-    }, []);
+    const[currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const LIMIT = 5;
 
-    const loadInquiries = async () => {
+    useEffect(() => {
+        loadInquiries(currentPage).then(() => {});
+    }, [currentPage]);
+
+    const loadInquiries = async (page:number) => {
         try {
-            const result = await fetchMyInquiries();
+            const result = await fetchMyInquiries(page,LIMIT);
             setInquiries(result.inquiries);
+            setTotalPages(result.totalPages)
         } catch (e) {
             console.log(e);
         } finally {
             setLoading(false);
         }
     };
+    const onPageChange = (page:number) => {
+        setCurrentPage(page);
+        window.scrollTo(0, 0);
+    }
 
     return (
         <div className={twMerge(["max-w-4xl", "mx-auto", "px-4"])}>
@@ -97,6 +107,7 @@ function InquiryList() {
                     </tbody>
                 </table>
             </div>
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={onPageChange} />
         </div>
     );
 }

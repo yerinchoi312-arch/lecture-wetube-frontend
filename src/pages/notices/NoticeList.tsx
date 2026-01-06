@@ -20,7 +20,7 @@ function NoticeList() {
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const LIMIT = 20;
+    const LIMIT = 15;
 
     useEffect(() => {
         loadNoticed(currentPage).then(() => {});
