@@ -10,6 +10,10 @@ import NoticeList from "../pages/notices/NoticeList.tsx";
 import NoticeCreate from "../pages/notices/NoticeCreate.tsx";
 import NoticeDetail from "../pages/notices/NoticeDetail.tsx";
 import NoticeEdit from "../pages/notices/NoticeEdit.tsx";
+import InquiryList from "../inquiries/InquiryList.tsx";
+import InquiryCreate from "../inquiries/InquiryCreate.tsx";
+import InquiryDetail from "../inquiries/InquiryDetail.tsx";
+import InquiryEdit from "../inquiries/InquiryEdit.tsx";
 
 const router = createBrowserRouter([
     {
@@ -35,13 +39,23 @@ const router = createBrowserRouter([
                 //        notices/create > NoticeCreate
                 //        notices/:id > NoticeDetail
                 //        notices/:id/edit > NoticeEdit
-                path : "notices", children:[
-                    { index:true, element: <NoticeList/>},
-                    { path: "create", element : <NoticeCreate/>},
-                    { path: ":id", element : <NoticeDetail/>},
-                    { path: ":id/edit", element : <NoticeEdit/>},
-                ]
-            }
+                path: "notices",
+                children: [
+                    { index: true, element: <NoticeList /> },
+                    { path: "create", element: <NoticeCreate /> },
+                    { path: ":id", element: <NoticeDetail /> },
+                    { path: ":id/edit", element: <NoticeEdit /> },
+                ],
+            },
+            {
+                path: "inquiries",
+                children: [
+                    { index: true, element: <InquiryList /> },
+                    { path: "new", element: <InquiryCreate /> },
+                    { path: ":id", element: <InquiryDetail /> },
+                    { path: ":id/edit", element: <InquiryEdit /> },
+                ],
+            },
         ],
     },
 ]);
