@@ -42,3 +42,10 @@ export const toggleVideoLike = async (videoId:number) => {
     const response = await api.post<{isLiked:boolean}>(`/videos/${videoId}/like`);
     return response.data;
 }
+// video 검색 API
+export const searchVideos = async (query: string) => {
+    const response = await api.get<Video[]>(`/videos/search`, {
+        params: { q: query }
+    });
+    return response.data;
+}
