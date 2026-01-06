@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router";
 import { useForm } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
-import { fetchInquiryDetail, updateInquiry } from "../api/inquiry.ts";
-import Button from "../components/ui/Button.tsx";
-import Input from "../components/ui/Input.tsx";
+import { fetchInquiryDetail, updateInquiry } from "../../api/inquiry.ts";
+import Button from "../../components/ui/Button.tsx";
+import Input from "../../components/ui/Input.tsx";
 import { useEffect } from "react";
 type InquiryEditFormData = {
     title: string;

@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
-import { createInquiry } from "../api/inquiry.ts";
-import Button from "../components/ui/Button.tsx";
-import Input from "../components/ui/Input.tsx";
+import { createInquiry } from "../../api/inquiry.ts";
+import Button from "../../components/ui/Button.tsx";
+import Input from "../../components/ui/Input.tsx";
 type InquiryCreateFormData = {
     title: string;
     content: string;

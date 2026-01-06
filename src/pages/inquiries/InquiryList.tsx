@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
-import { fetchMyInquiries, type Inquiry } from "../api/inquiry.ts";
+import { fetchMyInquiries, type Inquiry } from "../../api/inquiry.ts";
 import { twMerge } from "tailwind-merge";
-import Button from "../components/ui/Button.tsx";
+import Button from "../../components/ui/Button.tsx";
 import dayjs from "dayjs";
 
 function InquiryList() {

@@ -10,10 +10,10 @@ import NoticeList from "../pages/notices/NoticeList.tsx";
 import NoticeCreate from "../pages/notices/NoticeCreate.tsx";
 import NoticeDetail from "../pages/notices/NoticeDetail.tsx";
 import NoticeEdit from "../pages/notices/NoticeEdit.tsx";
-import InquiryList from "../inquiries/InquiryList.tsx";
-import InquiryCreate from "../inquiries/InquiryCreate.tsx";
-import InquiryDetail from "../inquiries/InquiryDetail.tsx";
-import InquiryEdit from "../inquiries/InquiryEdit.tsx";
+import InquiryList from "../pages/inquiries/InquiryList.tsx";
+import InquiryCreate from "../pages/inquiries/InquiryCreate.tsx";
+import InquiryDetail from "../pages/inquiries/InquiryDetail.tsx";
+import InquiryEdit from "../pages/inquiries/InquiryEdit.tsx";
 
 const router = createBrowserRouter([
     {

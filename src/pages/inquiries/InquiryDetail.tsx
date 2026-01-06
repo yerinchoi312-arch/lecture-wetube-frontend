@@ -5,10 +5,10 @@ import {
     deleteInquiryAnswer,
     fetchInquiryDetail,
     type Inquiry,
-} from "../api/inquiry.ts";
-import { useAuthStore } from "../store/useAuthStore.ts";
+} from "../../api/inquiry.ts";
+import { useAuthStore } from "../../store/useAuthStore.ts";
 import { twMerge } from "tailwind-merge";
-import Button from "../components/ui/Button.tsx";
+import Button from "../../components/ui/Button.tsx";
 import dayjs from "dayjs";
 import { MdDelete, MdEdit } from "react-icons/md";
 

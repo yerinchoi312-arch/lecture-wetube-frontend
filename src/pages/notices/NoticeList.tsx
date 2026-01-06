@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { fetchNotices, type Notice } from "../../api/notice.ts";
 import { twMerge } from "tailwind-merge";
 import Button from "../../components/ui/Button.tsx";
+import Pagination from "../../components/ui/Pagination.tsx";
 
 dayjs.extend(relativeTime);
 dayjs.locale("ko");
@@ -17,21 +18,30 @@ function NoticeList() {
 
     const [notices, setNotices] = useState<Notice[]>([]);
     const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const LIMIT = 20;
 
     useEffect(() => {
-        loadNoticed().then(() => {});
-    }, []);
+        loadNoticed(currentPage).then(() => {});
+    }, [currentPage]);
 
-    const loadNoticed = async () => {
+    const loadNoticed = async (page:number) => {
         try {
-            const data = await fetchNotices();
+            const data = await fetchNotices(page,LIMIT);
             setNotices(data.notices);
+            setTotalPages(data.totalPages);
         } catch (e) {
             console.log(e);
         } finally {
             setLoading(false);
         }
     };
+
+    const onPageChange = (page:number) => {
+        setCurrentPage(page);
+        window.scrollTo(0, 0);
+    }
 
     return (
         <div className={twMerge(["w-full", "max-w-4xl", "mx-auto", "px-4"])}>
@@ -114,6 +124,7 @@ function NoticeList() {
                     ))
                 )}
             </div>
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={onPageChange}/>
         </div>
     );
 }
