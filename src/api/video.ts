@@ -49,3 +49,9 @@ export const searchVideos = async (query: string) => {
     });
     return response.data;
 }
+
+//구독채널영상조회
+export const fetchSubscribedVideos = async () =>{
+    const response = await api.get<Video[]>("/videos/subscribed");
+    return response.data;
+}
