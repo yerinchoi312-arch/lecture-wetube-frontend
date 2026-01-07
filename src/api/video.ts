@@ -55,3 +55,13 @@ export const fetchSubscribedVideos = async () =>{
     const response = await api.get<Video[]>("/videos/subscribed");
     return response.data;
 }
+//시청기록
+export const historyVideos = async () => {
+    const response = await api.get<Video[]>("/videos/history");
+    return response.data;
+}
+//좋아요 표시한 동영상 조회
+export const likedVideos = async () => {
+    const response = await api.get<Video[]>("/videos/liked");
+    return response.data;
+}
