@@ -208,7 +208,7 @@ function Header() {
                                                 프로필 수정
                                             </Link>
                                             <Link
-                                                to={`/channel/${user.id}`}
+                                                to={`/channels/${user.id}`}
                                                 onClick={() => setIsMenuOpen(false)}
                                                 className={twMerge(
                                                     [
@@ -288,7 +288,7 @@ function Header() {
                                 ],
                             )}>
                             <FaRegUserCircle className={twMerge(["w-5", "h-5"])} />
-                            <span className={twMerge("text-sm","whitespace-nowrap")}>로그인</span>
+                            <span className={twMerge("text-sm", "whitespace-nowrap")}>로그인</span>
                         </Link>
                     )}
                 </div>
