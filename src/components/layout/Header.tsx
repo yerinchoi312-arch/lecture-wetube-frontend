@@ -2,7 +2,7 @@ import { type FormEvent, type MouseEvent, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { Link, useNavigate } from "react-router";
 import {
-    MdAccountBox,
+    MdAccountBox, MdAdminPanelSettings,
     MdCampaign,
     MdDarkMode,
     MdEdit,
@@ -250,6 +250,29 @@ function Header() {
                                                 "my-1",
                                             ])}
                                         />
+
+                                        {user.role === "ADMIN" && (
+                                            <Link to={"/admin"} onClick={()=>setIsMenuOpen(false)}
+
+                                                  className={twMerge(
+                                                      [
+                                                          "w-full",
+                                                          "flex",
+                                                          "items-center",
+                                                          "gap-3",
+                                                          "px-4",
+                                                          "py-2",
+                                                      ],
+                                                      [
+                                                          "text-sm",
+                                                          "text-info-main",
+                                                          "hover:bg-info-main/5",
+                                                      ],
+                                                  )}>
+                                                <MdAdminPanelSettings className={"w-6 h-6"}/>
+                                                관리자페이지
+                                            </Link>
+                                        )}
 
                                         <button
                                             className={twMerge(
