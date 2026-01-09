@@ -21,6 +21,8 @@ import VideoLike from "../pages/playlist/VideoLike.tsx";
 import ChannelDetail from "../pages/channels/ChannelDetail.tsx";
 import AdminLayout from "../layout/AdminLayout.tsx";
 import AdminDashboard from "../pages/admin/AdminDashboard.tsx";
+import AdminUser from "../pages/admin/AdminUser.tsx";
+import AdminVideo from "../pages/admin/AdminVideo.tsx";
 
 const router = createBrowserRouter([
     {
@@ -82,7 +84,9 @@ const router = createBrowserRouter([
         path:"/admin",
         element: <AdminLayout/>,
         children:[
-            {index:true , element: <AdminDashboard/>}
+            {index:true , element: <AdminDashboard/>},
+            {path:"users",element: <AdminUser/>},
+            {path:"videos",element: <AdminVideo/>},
         ]
     }
 ]);
